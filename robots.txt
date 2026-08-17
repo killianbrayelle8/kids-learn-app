@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://TON-SITE.example/kidlearn/sitemap.xml
+Sitemap: https://killianbrayelle8.github.io/kids-learn-app/sitemap.xml
