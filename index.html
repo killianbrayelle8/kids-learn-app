@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffd43b" />
+  <meta name="description" content="KidLearn : app éducative pour enfants de 0 à 13 ans. Maths, français et anglais en vidéos et quiz, par âge. Abonnement premium pour tout débloquer." />
+  <title>KidLearn — App éducative pour enfants (0-13 ans) : Maths, Français, Anglais</title>
+  <link rel="canonical" href="https://TON-SITE.example/kidlearn/" />
+  <!-- Open Graph / partage -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="KidLearn — École en s'amusant" />
+  <meta property="og:description" content="App éducative pour enfants de 0 à 13 ans : maths, français, anglais en vidéos et quiz, filtrés par âge." />
+  <meta property="og:locale" content="fr_FR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="KidLearn — École en s'amusant" />
+  <meta name="twitter:description" content="App éducative pour enfants de 0 à 13 ans." />
+  <!-- Données structurées pour Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "KidLearn",
+    "description": "App éducative pour enfants de 0 à 13 ans : maths, français, anglais en vidéos et quiz, filtrés par âge.",
+    "url": "https://TON-SITE.example/kidlearn/",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web, Android, iOS",
+    "inLanguage": "fr",
+    "offers": { "@type": "Offer", "price": "3.99", "priceCurrency": "EUR", "description": "Pass Premium mensuel" }
+  }
+  </script>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- BARRE DU HAUT -->
+  <div class="topbar">
+    <h1>🌟 KidLearn</h1>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <div class="stars-badge" id="starsBadge">⭐ <span id="starCount">0</span></div>
+      <div class="premium-badge" id="premiumBadge">🔓 Gratuit</div>
+    </div>
+  </div>
+
+  <!-- ÉCRAN ACCUEIL -->
+  <section class="screen active" id="screen-home">
+    <p style="font-size:20px;text-align:center;color:#495057;margin:6px 0 14px;">
+      Quel est ton âge ? Choisis ta catégorie ! 🎂
+    </p>
+    <div class="subjects-grid" id="ageGrid"></div>
+    <div style="text-align:center;margin-top:18px;">
+      <button class="subscribe-btn" id="subscribeBtn">⭐ Devenir premium — débloquer toutes les vidéos</button>
+    </div>
+  </section>
+
+  <!-- ÉCRAN 2 : matières -->
+  <section class="screen" id="screen-age">
+    <button class="back-btn" id="backHome">← Retour</button>
+    <h2 class="section-title" id="ageTitle"></h2>
+    <p id="ageDesc" style="color:#495057;font-size:17px;margin-top:4px;"></p>
+    <div class="subjects-grid" id="matiereGrid"></div>
+  </section>
+
+  <!-- ÉCRAN 3 : vidéos -->
+  <section class="screen" id="screen-matiere">
+    <button class="back-btn" id="backToAge">← Retour</button>
+    <h2 class="section-title" id="matiereTitle"></h2>
+    <div class="video-grid" id="videoGrid"></div>
+  </section>
+
+  <!-- ÉCRAN QUIZ -->
+  <section class="screen" id="screen-quiz">
+    <button class="back-btn" id="backFromQuiz">← Retour</button>
+    <h2 class="section-title" id="quizTitle"></h2>
+    <div id="quizArea"></div>
+  </section>
+
+  <footer>Créé avec ❤️ pour apprendre en s'amusant · Mode enfant sécurisé</footer>
+
+  <!-- Bouton discret Espace Parents -->
+  <button class="parent-entry" id="parentEntry">Espace Parents 👨‍👩‍👧</button>
+
+  <!-- LECTEUR VIDÉO -->
+  <div class="player-overlay" id="playerOverlay">
+    <div class="player-title" id="playerTitle"></div>
+    <div class="player-box"><iframe id="playerFrame" src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    <button class="player-close" id="playerClose">✕ Fermer la vidéo</button>
+  </div>
+
+  <!-- CÉLÉBRATION -->
+  <div class="celebration" id="celebration">
+    <div class="big-star">⭐</div>
+    <h2>Bravo !</h2>
+    <p>Tu as gagné une étoile ! 🎉</p>
+    <button id="celebrationOk">Continue !</button>
+  </div>
+
+  <!-- OVERLAY ABONNEMENT -->
+  <div class="parent-gate" id="subscribeOverlay">
+    <div class="parent-panel subscribe-panel">
+      <h3>⭐ Pass Premium KidLearn</h3>
+      <p class="price">3,99 €<span>/mois</span></p>
+      <ul class="perks">
+        <li>✅ Toutes les vidéos débloquées (0 → 13 ans)</li>
+        <li>✅ Maths, Français, Anglais complets</li>
+        <li>✅ Quiz illimités + suivi des étoiles</li>
+        <li>✅ Sans publicité, mode enfant sécurisé</li>
+      </ul>
+      <button class="btn subscribe-pay" id="subscribePay">S'abonner (paiement sécurisé)</button>
+      <button class="btn btn-close" id="subscribeClose">Plus tard</button>
+      <p class="small">Démo : le paiement réel sera géré via Stripe (comme tes e-books).</p>
+    </div>
+  </div>
+
+  <!-- VERROU PARENTAL -->
+  <div class="parent-gate" id="parentGate">
+    <h2>🔒 Espace Parents</h2>
+    <p>Réponds pour continuer (réservé aux grands) :</p>
+    <div class="question" id="gateQuestion">7 + 4 = ?</div>
+    <input id="gateAnswer" type="number" inputmode="numeric" placeholder="?" />
+    <div class="parent-error" id="gateError"></div>
+    <button class="btn" id="gateSubmit">Valider</button>
+  </div>
+
+  <!-- PANNEAU PARENTS -->
+  <div class="parent-gate" id="parentPanel">
+    <div class="parent-panel">
+      <h3>👨‍👩‍👧 Espace Parents</h3>
+      <div class="stat">⭐ Étoiles gagnées : <b id="panelStars">0</b></div>
+      <div class="stat">📺 Vidéos vues : <b id="panelWatched">0</b></div>
+      <div class="stat">⭐ Abonnement : <b id="panelPremium">Gratuit</b></div>
+      <p style="color:#868e96;font-size:14px;">Les vidéos viennent de chaînes éducatives publiques. Vérifie-les avant de laisser l'enfant regarder seul.</p>
+      <button class="btn btn-cancel" id="panelCancel">Résilier (démo)</button>
+      <button class="btn btn-reset" id="panelReset">Réinitialiser les progrès</button>
+      <button class="btn btn-close" id="panelClose">Fermer</button>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

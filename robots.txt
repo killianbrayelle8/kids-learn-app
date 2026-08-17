@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://TON-SITE.example/kidlearn/sitemap.xml

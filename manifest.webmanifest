@@ -1,0 +1,19 @@
+{
+  "name": "KidLearn — École en s'amusant",
+  "short_name": "KidLearn",
+  "description": "App éducative pour enfants : maths, français, anglais en vidéos.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fdf6e3",
+  "theme_color": "#ffd43b",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
